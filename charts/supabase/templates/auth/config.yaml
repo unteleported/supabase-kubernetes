@@ -5,4 +5,6 @@ metadata:
   labels:
     {{- include "supabase.labels" . | nindent 4 }}
 data:
+  GOTRUE_DB_DATABASE_URL: postgres://postgres:{{ .Values.db_password }}@{{ template "common.names.fullname" .Subcharts.database }}.{{ .Release.Namespace }}.svc.cluster.local:5432/postgres?search_path=auth
+  GOTRUE_JWT_SECRET: {{ .Values.jwt_secret | quote }}
   {{- toYaml .Values.auth.environment | nindent 2 }}

@@ -22,10 +22,12 @@ studio:
 
   podAnnotations: {}
 
-  podSecurityContext: {}
+  podSecurityContext:
+    {}
     # fsGroup: 2000
 
-  securityContext: {}
+  securityContext:
+    {}
     # capabilities:
     #   drop:
     #   - ALL
@@ -35,7 +37,6 @@ studio:
 
   environment:
     SUPABASE_URL: http://kong:8000
-    STUDIO_PG_META_URL: http://meta:8080
     SUPABASE_ANON_KEY: ${ANON_KEY}
     SUPABASE_SERVICE_KEY: ${SERVICE_ROLE_KEY}
 
@@ -53,7 +54,8 @@ studio:
     #    hosts:
     #      - chart-example.local
 
-  resources: {}
+  resources:
+    {}
     # We usually recommend not to specify default resources and to leave this as a conscious
     # choice for the user. This also increases chances charts run on environments with little
     # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -78,7 +80,6 @@ studio:
 
   affinity: {}
 
-
 # Auth Service
 auth:
   replicaCount: 1
@@ -102,10 +103,12 @@ auth:
 
   podAnnotations: {}
 
-  podSecurityContext: {}
+  podSecurityContext:
+    {}
     # fsGroup: 2000
 
-  securityContext: {}
+  securityContext:
+    {}
     # capabilities:
     #   drop:
     #   - ALL
@@ -153,7 +156,8 @@ auth:
     #    hosts:
     #      - chart-example.local
 
-  resources: {}
+  resources:
+    {}
     # We usually recommend not to specify default resources and to leave this as a conscious
     # choice for the user. This also increases chances charts run on environments with little
     # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -201,10 +205,12 @@ rest:
 
   podAnnotations: {}
 
-  podSecurityContext: {}
+  podSecurityContext:
+    {}
     # fsGroup: 2000
 
-  securityContext: {}
+  securityContext:
+    {}
     # capabilities:
     #   drop:
     #   - ALL
@@ -233,7 +239,8 @@ rest:
     #    hosts:
     #      - chart-example.local
 
-  resources: {}
+  resources:
+    {}
     # We usually recommend not to specify default resources and to leave this as a conscious
     # choice for the user. This also increases chances charts run on environments with little
     # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -280,10 +287,12 @@ realtime:
 
   podAnnotations: {}
 
-  podSecurityContext: {}
+  podSecurityContext:
+    {}
     # fsGroup: 2000
 
-  securityContext: {}
+  securityContext:
+    {}
     # capabilities:
     #   drop:
     #   - ALL
@@ -293,15 +302,15 @@ realtime:
 
   environment:
     DB_HOST: db
-    DB_PORT: '5432'
+    DB_PORT: "5432"
     DB_NAME: postgres
     DB_USER: postgres
     DB_PASSWORD: ${POSTGRES_PASSWORD}
     DB_SSL: "false"
-    PORT: '4000'
+    PORT: "4000"
     JWT_SECRET: ${JWT_SECRET}
     REPLICATION_MODE: RLS
-    REPLICATION_POLL_INTERVAL: '100'
+    REPLICATION_POLL_INTERVAL: "100"
     SECURE_CHANNELS: "true"
     SLOT_NAME: supabase_realtime_rls
     TEMPORARY_SLOT: "true"
@@ -320,7 +329,8 @@ realtime:
     #    hosts:
     #      - chart-example.local
 
-  resources: {}
+  resources:
+    {}
     # We usually recommend not to specify default resources and to leave this as a conscious
     # choice for the user. This also increases chances charts run on environments with little
     # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -368,10 +378,12 @@ meta:
 
   podAnnotations: {}
 
-  podSecurityContext: {}
+  podSecurityContext:
+    {}
     # fsGroup: 2000
 
-  securityContext: {}
+  securityContext:
+    {}
     # capabilities:
     #   drop:
     #   - ALL
@@ -380,7 +392,7 @@ meta:
     # runAsUser: 1000
 
   environment:
-    PG_META_PORT: '8080'
+    PG_META_PORT: "8080"
     PG_META_DB_HOST: db
     PG_META_DB_PASSWORD: ${POSTGRES_PASSWORD}
 
@@ -398,7 +410,8 @@ meta:
     #    hosts:
     #      - chart-example.local
 
-  resources: {}
+  resources:
+    {}
     # We usually recommend not to specify default resources and to leave this as a conscious
     # choice for the user. This also increases chances charts run on environments with little
     # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -445,10 +458,12 @@ storage:
 
   podAnnotations: {}
 
-  podSecurityContext: {}
+  podSecurityContext:
+    {}
     # fsGroup: 2000
 
-  securityContext: {}
+  securityContext:
+    {}
     # capabilities:
     #   drop:
     #   - ALL
@@ -463,7 +478,7 @@ storage:
     PGRST_JWT_SECRET: ${JWT_SECRET}
     DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD}@db:5432/postgres
     PGOPTIONS: -c search_path=storage,public
-    FILE_SIZE_LIMIT: '52428800'
+    FILE_SIZE_LIMIT: "52428800"
     STORAGE_BACKEND: file
     FILE_STORAGE_BACKEND_PATH: /var/lib/storage
     TENANT_ID: stub
@@ -484,7 +499,8 @@ storage:
     #    hosts:
     #      - chart-example.local
 
-  resources: {}
+  resources:
+    {}
     # We usually recommend not to specify default resources and to leave this as a conscious
     # choice for the user. This also increases chances charts run on environments with little
     # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -540,10 +556,12 @@ kong:
 
   podAnnotations: {}
 
-  podSecurityContext: {}
+  podSecurityContext:
+    {}
     # fsGroup: 2000
 
-  securityContext: {}
+  securityContext:
+    {}
     # capabilities:
     #   drop:
     #   - ALL
@@ -572,7 +590,8 @@ kong:
     #    hosts:
     #      - chart-example.local
 
-  resources: {}
+  resources:
+    {}
     # We usually recommend not to specify default resources and to leave this as a conscious
     # choice for the user. This also increases chances charts run on environments with little
     # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -598,6 +617,7 @@ kong:
   affinity: {}
 
   config: {}
+  extraServices: []
   # config: |
   #   _format_version: "1.1"
 
@@ -748,9 +768,6 @@ kong:
   #             allow:
   #               - admin
 
-
-
-
 # Postgres Database
 # A standalone Postgres database configured to work with Supabase services.
 database:
@@ -769,4 +786,3 @@ database:
       value: LOGICAL
   initdbScriptsConfigMap: "{{ .Release.Name }}-initdb"
   # initdbScriptsConfigMap: my-release-initdb # This is required
-

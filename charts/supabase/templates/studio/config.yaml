@@ -6,5 +6,8 @@ metadata:
   labels:
     {{- include "supabase.labels" . | nindent 4 }}
 data:
+  STUDIO_PG_META_URL: http://{{ include "supabase.kong.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:8000/pg
+  SUPABASE_ANON_KEY: {{ .Values.anon_key | quote }}
+  SUPABASE_SERVICE_KEY: {{ .Values.service_key | quote }}
   {{- toYaml .Values.studio.environment | nindent 2 }}
 {{- end }}

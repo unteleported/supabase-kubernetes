@@ -5,4 +5,7 @@ metadata:
   labels:
     {{- include "supabase.labels" . | nindent 4 }}
 data:
+  PGRST_DB_URI: postgres://postgres:{{ .Values.db_password }}@{{ include 'common.names.fullname' }}.{{ .Release.Namespace }}.svc.cluster.local:5432/postgres
+  PGRST_JWT_SECRET: {{ .Values.jwt_secret }}
   {{- toYaml .Values.rest.environment | nindent 2 }}
+  
